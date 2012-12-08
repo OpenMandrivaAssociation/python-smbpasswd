@@ -1,13 +1,12 @@
 Name:           python-smbpasswd
 Version:        1.0.1
-Release:        1
+Release:        2
 Summary:        Python SMB Password Hash Generator Module
 
 Group:          Development/Python
 License:        GPLv2
 URL:            http://barryp.org/software/py-smbpasswd
 Source0:        py-smbpasswd-%{version}.tar.gz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	python-devel
 
 %description
@@ -18,17 +17,14 @@ NT password hashes suiteable to us with Samba.
 %setup -q -n py-smbpasswd-%{version}
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" 
-%{__python} setup.py build
+CFLAGS="%{optflags}" 
+python setup.py build
 
 %install
-%{__python} setup.py install -O1 --skip-build --root $RPM_BUILD_ROOT
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+python setup.py install -O1 --skip-build --root %{buildroot}
 
 %files
-%defattr(-,root,root,-)
 %{py_platsitedir}/smbpasswd.so
 %{py_platsitedir}/*egg-info
 %doc COPYING README.txt
+
