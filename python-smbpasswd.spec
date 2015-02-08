@@ -19,12 +19,12 @@ NT password hashes suiteable to us with Samba.
 
 %build
 CFLAGS="%{optflags}" 
-python setup.py build
+python2 setup.py build
 
 %install
-python setup.py install -O1 --skip-build --root %{buildroot}
+python2 setup.py install -O1 --skip-build --root %{buildroot}
 
 %files
-%{py_platsitedir}/smbpasswd.so
-%{py_platsitedir}/*egg-info
+%{py2_platsitedir}/smbpasswd.so
+%{py2_platsitedir}/*egg-info
 %doc README.txt
