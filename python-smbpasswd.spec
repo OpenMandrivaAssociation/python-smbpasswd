@@ -5,7 +5,7 @@ Summary:        Python SMB Password Hash Generator Module
 
 Group:          Development/Python
 License:        GPLv2
-URL:            http://barryp.org/software/py-smbpasswd
+URL:            https://barryp.org/software/py-smbpasswd
 Source0:        smbpasswd-%{version}.tgz
 BuildRequires:	python2-devel
 BuildRequires:	python2-setuptools
